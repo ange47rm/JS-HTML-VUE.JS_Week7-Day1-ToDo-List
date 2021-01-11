@@ -8,13 +8,17 @@ document.addEventListener ("DOMContentLoaded", () => {
                                                 // This is where the app will run (within the div)
 
         data: {                                 // data IS WHERE WE DEFINE ALL THE OBJECT/VARIABLES/ARRAYS ETC
-            todos: ['Wash car', 'Go food shopping', 'Go for a drive', 'Finish Codeclan MVP within reasonable time', 'Check return flight'],
-            newTask: ''
+            todos: [{taskName: "Wash Car", priority: 'Low'},
+                    {taskName: "Food shopping", priority: 'High'},
+                    {taskName: "Finish homework", priority: 'Low'},
+                    {taskName: "Pay rent", priority: 'High'}
+        ],
+            newTask: {taskName:'', priority: ''}
         },
         methods: {
             saveNewTask: function (){
                 this.todos.push (this.newTask);
-                this.newTask = '';
+                this.newTask = {taskName:'', priority: ''};
             }
         }
     })

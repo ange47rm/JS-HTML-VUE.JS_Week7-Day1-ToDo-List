@@ -11,13 +11,20 @@
         <h1>My TO-DO list</h1>
 
         <ul>
-            <li v-for='task in todos'>{{ task }}</li>               <!-- Here we want to see each element in the 'todos' array -->
+            <li v-for='task in todos'>{{ task.taskName }} - Priority: {{ task.priority }} </li>               <!-- Here we want to see each element in the 'todos' array -->
         </ul>
         
         <form v-on:submit.prevent='saveNewTask'>                    <!-- Listen for a 'submit' event and run function 'saveNewTask'-->             
             <label for="new-task">Add new task</label>
-            <input type='text' id='new-task' v-model='newTask' required>     <!-- what is put in the input field is going to be the newItem-->
+            <input type='text' id='new-task' v-model='newTask.taskName' required>     <!-- what is put in the input field is going to be the newItem-->
             <input type='submit' value='Save new task'>
+
+            <input type='radio' id='high-priority' value='High' name='choice' v-model='newTask.priority'>
+            <label for='high-priority'>High Priority</label>
+
+            <input type='radio' id='low-priority' value='Low' name='choice' v-model='newTask.priority'>
+            <label for='low-priority'>Low Priority</label>
+
         </form>
 
     </div>
