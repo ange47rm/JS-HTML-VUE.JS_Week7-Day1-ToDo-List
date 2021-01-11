@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/bundle.js"></script>      <!-- IMPORTANT! -->
+    <title>VUE-JS TO-DO LIST APP</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>My TO-DO list</h1>
+
+        <ul>
+            <li v-for='task in todos'>{{ task }}</li>               <!-- Here we want to see each element in the 'todos' array -->
+        </ul>
+        
+        <form v-on:submit.prevent='saveNewTask'>                    <!-- Listen for a 'submit' event and run function 'saveNewTask'-->             
+            <label for="new-task">Add new task</label>
+            <input type='text' id='new-task' v-model='newTask' required>     <!-- what is put in the input field is going to be the newItem-->
+            <input type='submit' value='Save new task'>
+        </form>
+
+    </div>
+</body>
+</html>
